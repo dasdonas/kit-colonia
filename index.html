@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Colónia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@500;700&family=Hanken+Grotesk:wght@400;500;700&display=swap">
+<style>
+
+#colonia {
+  --bg: #F3F7FC;
+  --paper: #FFFFFF;
+  --fg: #14213D;
+  --muted: #475672;
+  --blue: #1F4FA3;
+  --blue-soft: #DCE7F8;
+  --yellow: #F5B82E;
+  --on-yellow: #14213D;
+  --line: #C3D2EA;
+  --font-display: "DynaPuff", "Trebuchet MS", sans-serif;
+  --font-body: "Hanken Grotesk", system-ui, sans-serif;
+ background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 17px; line-height: 1.6; padding: 0 20px; 
+}
+#colonia, #colonia * { box-sizing: border-box; }
+#colonia .wrap { max-width: 760px; margin-inline: auto; }
+#colonia h1, #colonia h2, #colonia h3 { font-family: var(--font-display); font-weight: 700; line-height: 1.1; text-wrap: balance; margin: 0; }
+#colonia p { margin: 0; max-width: 62ch; }
+#colonia a { color: var(--blue); }
+#colonia :focus-visible { outline: 3px solid var(--yellow); outline-offset: 3px; }
+#colonia .hero { display: grid; gap: 20px; justify-items: start; padding-block: 40px 36px; }
+#colonia .logo { width: min(320px, 82vw); height: auto; }
+#colonia h1 { font-size: clamp(2.6rem, 11vw, 4.6rem); color: var(--blue); }
+#colonia .tagline { font-family: var(--font-display); font-weight: 500; font-size: clamp(1.15rem, 4.5vw, 1.5rem); }
+#colonia .lede { color: var(--muted); }
+#colonia .tiles { height: 26px; border-block: 2px solid var(--blue); background-color: var(--blue-soft);
+  background-image: radial-gradient(circle, var(--blue) 0 3px, transparent 3.5px), radial-gradient(circle, var(--yellow) 0 4px, transparent 4.5px);
+  background-size: 26px 26px, 26px 26px; background-position: 0 0, 13px 13px; }
+#colonia section { padding-block: 44px; display: grid; gap: 18px; }
+#colonia h2 { font-size: clamp(1.7rem, 6.5vw, 2.3rem); color: var(--blue); }
+#colonia .kicker { font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; font-weight: 700; color: var(--muted); }
+#colonia .legend { background: var(--paper); border: 2px solid var(--line); border-radius: 18px; padding: 22px; display: grid; gap: 14px; }
+#colonia .scene { width: 100%; height: auto; border-radius: 12px; border: 2px solid var(--line); display: block; }
+#colonia .quote { font-family: var(--font-display); font-weight: 500; font-size: 1.35rem; color: var(--blue); }
+#colonia .progress { display: grid; gap: 8px; }
+#colonia .bar { display: grid; grid-template-columns: repeat(10, 1fr); gap: 4px; }
+#colonia .bar i { height: 12px; border-radius: 6px; background: var(--line); }
+#colonia .bar i.on { background: var(--yellow); }
+#colonia .small { font-size: .9rem; color: var(--muted); }
+#colonia .cats { display: grid; grid-template-columns: repeat(auto-fill, minmax(128px, 1fr)); gap: 12px; padding: 0; margin: 0; list-style: none; }
+#colonia .cat { background: var(--paper); border: 2px solid var(--line); border-radius: 16px; padding: 12px 10px 14px; display: grid; justify-items: center; gap: 4px; text-align: center; min-width: 0; }
+#colonia .cat svg { width: 64px; height: 64px; }
+#colonia .cat b { font-family: var(--font-display); font-weight: 500; font-size: .98rem; line-height: 1.15; }
+#colonia .tag { font-size: .72rem; font-weight: 700; letter-spacing: .04em; padding: 2px 8px; border-radius: 99px; background: var(--blue-soft); color: var(--blue); }
+#colonia .tag.todo { background: var(--yellow); color: var(--on-yellow); }
+#colonia .note { font-size: .82rem; color: var(--muted); }
+#colonia .products { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 16px; }
+#colonia .product { background: var(--paper); border: 2px dashed var(--blue); border-radius: 18px; padding: 16px; display: grid; gap: 10px; min-width: 0; }
+#colonia .slot { aspect-ratio: 1 / 1; max-width: 100%; border-radius: 12px; background: var(--blue-soft); display: grid; place-items: center; text-align: center; padding: 12px; color: var(--blue); font-family: var(--font-display); font-weight: 500; }
+#colonia .product h3 { font-size: 1.15rem; }
+#colonia .price { font-variant-numeric: tabular-nums; font-weight: 700; }
+#colonia .btn { display: inline-block; font: inherit; font-weight: 700; text-decoration: none; text-align: center; background: var(--yellow); color: var(--on-yellow); border: 2px solid var(--on-yellow); border-radius: 99px; padding: 10px 20px; cursor: default; }
+#colonia .btn[aria-disabled="true"] { opacity: .65; }
+#colonia .ledger { background: var(--paper); border: 2px solid var(--line); border-radius: 18px; overflow-x: auto; }
+#colonia table { width: 100%; border-collapse: collapse; font-size: .95rem; font-variant-numeric: tabular-nums; }
+#colonia th, #colonia td { text-align: left; padding: 12px 16px; border-bottom: 1px solid var(--line); vertical-align: top; }
+#colonia th { font-size: .75rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+#colonia tr:last-child td { border-bottom: 0; }
+#colonia td.num { text-align: right; white-space: nowrap; }
+#colonia .stamp { display: grid; grid-template-columns: auto 1fr; gap: 16px; align-items: center; background: var(--paper); border: 2px solid var(--blue); border-radius: 18px; padding: 18px; }
+#colonia .stamp svg { width: 72px; height: 72px; }
+#colonia .petition { background: var(--blue); color: #fff; border-radius: 22px; padding: 28px 22px; display: grid; gap: 14px; justify-items: start; }
+#colonia .petition h2 { color: #fff; }
+#colonia .petition p { color: #EAF0FB; }
+#colonia .open { border-top: 2px solid var(--line); }
+#colonia footer { padding-block: 28px 48px; color: var(--muted); font-size: .88rem; }
+
+body { margin: 0; background: #F3F7FC; }
+#colonia { min-height: 100vh; }
+#colonia .chip { justify-self: start; font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 2px 10px; border-radius: 99px; background: var(--blue-soft); color: var(--blue); }
+#colonia .product ul { margin: 0; padding-left: 1.1em; font-size: .95rem; }
+#colonia .product .desc { font-size: .95rem; color: var(--muted); }
+#colonia .btn.off { opacity: .65; }
+#colonia .product .slot img { width: 100%; height: 100%; object-fit: cover; border-radius: 12px; }
+#colonia .cat img { width: 64px; height: 64px; object-fit: cover; border-radius: 50%; border: 3px solid var(--navy, #14213D); }
+#colonia .foot { padding-block: 28px 48px; color: var(--muted); font-size: .88rem; display: grid; gap: 8px; }
+#colonia .btn { cursor: pointer; justify-self: start; }
+#colonia .products { grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
+#colonia .product { align-content: start; }
+#colonia .product:last-child:nth-child(odd) { grid-column: 1 / -1; }
+#colonia .product .slot { max-width: 260px; }
+#colonia .btn.off { cursor: default; }
+</style>
+</head>
+<body>
+<div id="colonia"></div>
+<noscript>Esta página precisa de JavaScript para mostrar a colónia.</noscript>
+<!-- Os dados da colónia estão em colonia.js. Não é preciso mexer neste ficheiro. -->
+<script src="colonia.js"></script>
+<script>
+(function () {
+  var D = window.COLONIA;
+  var root = document.getElementById("colonia");
+  if (!D) { root.textContent = "Não foi possível ler o ficheiro colonia.js."; return; }
+
+  function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]; }); }
+  function url(u) { return /^https?:\/\//i.test(u || "") ? u : ""; }
+  function img(src) { return /^[\w\-./]+\.(svg|png|jpe?g|webp)$/i.test(src || "") && src.indexOf("..") < 0 ? src : ""; }
+  function paras(a) { return (a || []).map(function (p) { return "<p>" + esc(p) + "</p>"; }).join(""); }
+
+  var C = D.colonia || {};
+  document.title = C.nome || "Colónia";
+  var TILES = '<div class="tiles" role="presentation"></div>';
+  var h = '<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="colonia-cat" viewBox="0 0 64 64">'
+    + '<path d="M10 30 L12 8 L27 19 Z M54 30 L52 8 L37 19 Z" fill="var(--c)"/><ellipse cx="32" cy="38" rx="23" ry="20" fill="var(--c)"/>'
+    + '<path d="M32 18 A23 20 0 0 1 32 58 Z" fill="var(--c2, transparent)"/>'
+    + '<circle cx="23" cy="35" r="3.2" fill="#F5D060"/><circle cx="41" cy="35" r="3.2" fill="#F5D060"/>'
+    + '<rect x="22" y="33" width="2" height="5" rx="1" fill="#14213D"/><rect x="40" y="33" width="2" height="5" rx="1" fill="#14213D"/>'
+    + '<path d="M29.5 43 h5 l-2.5 3 z" fill="#E88CA0"/><path d="M32 46 q-3 4 -6 2 M32 46 q3 4 6 2" stroke="#14213D" stroke-width="1.6" fill="none" stroke-linecap="round"/>'
+    + '<path d="M13 42 l-9 -2 M13 46 l-9 2 M51 42 l9 -2 M51 46 l9 2" stroke="#8A94AA" stroke-width="1.2" stroke-linecap="round"/></symbol></svg>';
+
+  // Abertura
+  h += '<div class="wrap"><header class="hero">';
+  if (img(D.imagens && D.imagens.logo)) h += '<img class="logo" src="' + esc(D.imagens.logo) + '" alt="Logótipo ' + esc(C.nome) + '">';
+  h += '<h1>' + esc(C.nome) + '</h1>';
+  if (C.frase) h += '<p class="tagline">' + esc(C.frase) + '</p>';
+  if (C.apresentacao) h += '<p class="lede">' + esc(C.apresentacao) + '</p>';
+  h += '</header></div>' + TILES;
+
+  // História
+  var H = D.historia;
+  if (H) {
+    h += '<div class="wrap"><section id="historia"><span class="kicker">A história</span><h2>' + esc(H.titulo) + '</h2>' + paras(H.paragrafos_antes);
+    var L = D.lenda;
+    if (L) {
+      h += '<div class="legend">';
+      if (img(L.imagem)) h += '<img class="scene" src="' + esc(L.imagem) + '" alt="' + esc(L.descricao_imagem || "Ilustração da lenda") + '">';
+      h += '<span class="kicker">' + esc(L.titulo) + '</span>' + paras(L.paragrafos);
+      if (L.frase) h += '<p class="quote">' + esc(L.frase) + '</p>';
+      h += '</div>';
+    }
+    h += paras(H.paragrafos_depois) + '</section></div>' + TILES;
+  }
+
+  // Animais
+  var A = D.animais;
+  if (A && A.lista && A.lista.length) {
+    var feitos = A.lista.filter(function (a) { return a.castrado === true; }).length;
+    var contam = A.lista.filter(function (a) { return a.castrado === true || a.castrado === false; }).length;
+    h += '<div class="wrap"><section id="animais"><span class="kicker">' + esc(A.kicker || "A colónia") + '</span><h2>' + esc(A.titulo) + '</h2>';
+    if (contam) {
+      h += '<div class="progress"><div class="bar" style="grid-template-columns:repeat(' + contam + ',1fr)" role="img" aria-label="' + feitos + ' de ' + contam + ' esterilizados">';
+      for (var i = 0; i < contam; i++) h += '<i class="' + (i < feitos ? "on" : "") + '"></i>';
+      h += '</div><p class="small"><b>' + feitos + ' de ' + contam + '</b> ' + esc(A.progresso_texto || "já esterilizados.") + '</p></div>';
+    }
+    h += '<ul class="cats">';
+    A.lista.forEach(function (a) {
+      var av = img(a.foto)
+        ? '<img src="' + esc(a.foto) + '" alt="' + esc(a.nome) + '">'
+        : '<svg viewBox="0 0 64 64" aria-hidden="true"><use href="#colonia-cat" style="--c:' + esc(/^#[0-9a-f]{3,8}$/i.test(a.cor || "") ? a.cor : "#8A94AA") + ';--c2:' + esc(/^#[0-9a-f]{3,8}$/i.test(a.cor2 || "") ? a.cor2 : "transparent") + '"/></svg>';
+      h += '<li class="cat">' + av + '<b>' + esc(a.nome) + '</b>' + (a.estado ? '<span class="tag' + (a.castrado === false ? " todo" : "") + '">' + esc(a.estado) + '</span>' : "") + '</li>';
+    });
+    h += '</ul>';
+    if (A.nota) h += '<p class="note">' + esc(A.nota) + '</p>';
+    if (A.extra) h += '<p class="small">' + esc(A.extra) + '</p>';
+    h += '</section></div>' + TILES;
+  }
+
+  // Apoios
+  var S = D.apoios;
+  if (S && S.lista && S.lista.length) {
+    var ROT = { loja: "Loja", mensal: "Todos os meses", doacao: "Doação", bens: "Em espécie", evento: "Feira" };
+    h += '<div class="wrap"><section id="ajudar"><span class="kicker">Como ajudar</span><h2>' + esc(S.titulo) + '</h2>';
+    if (S.intro) h += '<p>' + esc(S.intro) + '</p>';
+    h += '<div class="products">';
+    S.lista.forEach(function (p) {
+      h += '<article class="product"><span class="chip">' + esc(ROT[p.tipo] || p.tipo) + '</span>';
+      if (p.tipo === "loja") h += '<div class="slot">' + (img(p.imagem) ? '<img src="' + esc(p.imagem) + '" alt="' + esc(p.titulo) + '">' : esc(p.imagem_em_falta || "Foto em breve")) + '</div>';
+      h += '<h3>' + esc(p.titulo) + '</h3>';
+      if (p.descricao) h += '<p class="desc">' + esc(p.descricao) + '</p>';
+      if (p.itens && p.itens.length) h += '<ul>' + p.itens.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join("") + '</ul>';
+      if (p.quando) h += '<p class="desc"><b>' + esc(p.quando) + '</b>' + (p.onde ? ' · ' + esc(p.onde) : "") + '</p>';
+      if (p.preco) h += '<span class="price">' + esc(p.preco) + '</span>';
+      var u = url(p.link);
+      h += u ? '<a class="btn" href="' + esc(u) + '" target="_blank" rel="noopener">' + esc(p.botao || "Quero ajudar") + '</a>'
+             : '<span class="btn off" aria-disabled="true">' + esc(p.estado || "Em breve") + '</span>';
+      h += '</article>';
+    });
+    h += '</div></section></div>' + TILES;
+  }
+
+  // Contas e parceiros
+  var K = D.contas, P = D.parceiros || {};
+  if (K) {
+    h += '<div class="wrap"><section id="contas"><span class="kicker">Contas à vista</span><h2>' + esc(K.titulo) + '</h2>';
+    h += '<div class="ledger"><table><thead><tr><th>Quando</th><th>O quê</th><th class="num">Valor</th></tr></thead><tbody>';
+    if (K.linhas && K.linhas.length) K.linhas.forEach(function (l) { h += '<tr><td>' + esc(l.quando) + '</td><td>' + esc(l.descricao) + '</td><td class="num">' + esc(l.valor) + '</td></tr>'; });
+    else h += '<tr><td>Em breve</td><td>' + esc(K.vazio || "Quando houver vendas e despesas, aparecem aqui.") + '</td><td class="num">—</td></tr>';
+    h += '</tbody></table></div>';
+    if (P.associacao && P.associacao.nome) h += '<p class="small">Os donativos são recebidos por <b>' + esc(P.associacao.nome) + '</b>' + (P.associacao.nota ? ', ' + esc(P.associacao.nota) : "") + '.' + (url(P.associacao.link) ? ' <a href="' + esc(url(P.associacao.link)) + '" target="_blank" rel="noopener">Saber mais</a>' : "") + '</p>';
+    if (P.apoio_publico && P.apoio_publico.texto) h += '<div class="stamp"><svg viewBox="0 0 72 72" role="img" aria-label="Selo de agradecimento"><circle cx="36" cy="36" r="33" fill="none" stroke="var(--blue)" stroke-width="3" stroke-dasharray="3 5" stroke-linecap="round"/><circle cx="36" cy="36" r="25" fill="var(--yellow)"/><path d="M24 38 l8 8 l17 -19" fill="none" stroke="var(--on-yellow)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg><p>' + esc(P.apoio_publico.texto) + '</p></div>';
+    if (P.apoio_publico && P.apoio_publico.falta) h += '<p class="small">' + esc(P.apoio_publico.falta) + '</p>';
+    h += '</section></div>';
+  }
+
+  // Campanha
+  var G = D.campanha;
+  if (G && G.titulo) {
+    h += '<div class="wrap"><section id="campanha"><div class="petition"><span class="kicker" style="color:#EAF0FB">' + esc(G.kicker || "Abaixo-assinado") + '</span><h2>' + esc(G.titulo) + '</h2><p>' + esc(G.texto) + '</p>';
+    h += url(G.link) ? '<a class="btn" href="' + esc(url(G.link)) + '" target="_blank" rel="noopener">' + esc(G.botao || "Assinar") + '</a>' : '<span class="btn off" aria-disabled="true">' + esc(G.botao_em_breve || "Assinar (link em breve)") + '</span>';
+    h += '</div></section></div>';
+  }
+
+  // Rodapé
+  h += '<div class="wrap"><footer class="foot"><p><b>Um modelo aberto.</b> ' + esc((D.kit && D.kit.texto) || "Esta página foi feita com o Kit Colónia, de código aberto. Cuidas de animais de rua? Podes fazer a tua.") + '</p>';
+  if (D.kit && url(D.kit.link)) h += '<p><a href="' + esc(url(D.kit.link)) + '" target="_blank" rel="noopener">Ver o kit</a></p>';
+  h += '</footer></div>';
+
+  root.innerHTML = h;
+})();
+</script>
+</body>
+</html>
