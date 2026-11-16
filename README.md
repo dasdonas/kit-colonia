@@ -41,3 +41,4 @@ Ver `LICENSE`. Em resumo: o código é livre (MIT) e os textos do kit também po
 ## Contribuir
 
 Fizeste a tua página e aprendeste alguma coisa? Partilha a ideia ou uma melhoria. Quanto mais colónias usarem o kit, mais fácil fica para a seguinte.
+
