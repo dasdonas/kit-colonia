@@ -84,6 +84,6 @@ window.COLONIA = {
     link: "" // ATUALIZAR: link da petição
   },
 
-  imagens: { logo: "imagens/logo.svg" },
+  imagens: { logo: "imagens/logo.png" },
   kit: { link: "" }
 };
