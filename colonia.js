@@ -22,7 +22,7 @@ window.COLONIA = {
 
   lenda: {
     titulo: "Reza a lenda cá do monte",
-    imagem: "imagens/a-lenda.svg",
+    imagem: "imagens/lenda dos gatos.jpeg",
     descricao_imagem: "Numa manhã de nevoeiro, os gatos descem dos Arcos em procissão e chegam à porta da Dona Tina, que os espera com um pires.",
     paragrafos: [
       "Numa manhã de nevoeiro, os gatos desceram dos Arcos em procissão, passaram pelo Mosteiro de Santa Clara e escolheram uma porta. Dizem que foi destino. A Dona Tina diz que foi o pires."
